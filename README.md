@@ -28,3 +28,23 @@ const person = {
 }
 socket.emit("join", person)
 ```
+**Send notification**<br />
+    You can send a notification to a person following this example: 
+```javascript
+const notification = {
+    "from":{
+        "_id":"5bbce640a588e463967fe2a1",
+        "name":"Fulano Silva",
+        "photo":"..."
+    },
+    "to":{
+        "_id":"5bbe54dec1c10a24c4b71e6a",
+        "name":"Beltrano Santos",
+        "photo":"..."
+    },
+    "group":"Codate",
+    "content":"Good Morning!"
+}
+socket.emit("sendNotification", notification)
+```
+    
