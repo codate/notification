@@ -4,9 +4,9 @@ class GetNotificationsByGroup {
     async execute(notificationData, responder) {
         try {
             const notifications = await notificationRepository.getNotificationsByGroup(notificationData.group)
-            this.emit("receiveGroupNotifications", notifications)
+            this.emit('receiveGroupNotifications', notifications)
         } catch (err) {
-            this.emit("err", err)
+            this.emit('err', err)
         }
     }
 }

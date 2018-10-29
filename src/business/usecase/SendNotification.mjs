@@ -4,9 +4,9 @@ class SendNotification {
     async execute(notificationData) {
         try {
             const createdNotification = await notificationRepository.create(notificationData)
-            this.to(notificationData.to._id).emit("receiveNotification", createdNotification)
+            this.to(notificationData.to._id).emit('receiveNotification', createdNotification)
         } catch (err) {
-            this.emit("err", err)
+            this.emit('err', err)
         }
     }
 }
