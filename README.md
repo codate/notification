@@ -20,12 +20,12 @@ npm run start
 **Join**<br />
     So that you can receive notifications, first, you need join with your person object reference.
     To do this, emit a person object to join, ex.:
-      
-    ```javascript
+        
+    ```
     const person = {
-        "_id":"5bbce640a588e463967fe2a1"
+        "_id":"5bbce640a588e463967fe2a1",
         "name":"Fulano Silva",
         "photo":"..."
     }
     socket.emit("join", person);
-    ``` 
+    ```
