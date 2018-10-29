@@ -47,4 +47,59 @@ const notification = {
 }
 socket.emit("sendNotification", notification)
 ```
+**Receiving a notification**<br />
+    You can receive a notification from a person in real time, just listening "receiveNotification" on function "on", example:  
+```javascript
+socket.on("receiveNotification",(notification) => {
+    console.log(notification.content)
+})
+```
+   Observation: Take a look on Join first
+
+**Getting notifications**<br />
+    To getting your notifications, you need to send person _id and group in json object to "getMyNotifications", example:
+```javascript
+const myData = {   
+    "to":{
+        "_id":"5bbe54dec1c10a24c4b71e6a"
+    },
+    "group":"Codate"
+}
+socket.emit("getMyNotifications", myData)
+```
     
+   You will receive the notifications on "receiveMyNotifications":  
+```javascript
+socket.on("receiveMyNotifications",(notifications) => {
+    notifications.forEach((notification) => 
+        console.log(notification.content)
+    })
+})
+```
+
+**Getting group notifications**<br />
+    To getting group notifications, you need to send group in json object to "getGroupNotifications", example:
+```javascript
+const myData = {   
+    "group":"Codate"
+}
+socket.emit("getGroupNotifications", myData)
+```
+    
+   You will receive the notifications on "receiveMyNotifications":  
+```javascript
+socket.on("receiveGroupNotifications",(notifications) => {
+    notifications.forEach((notification) => 
+        console.log(notification.content)
+    })
+})
+```
+
+**Marking a notification as read**<br />
+   You can mark a notification as read following this example: 
+
+```javascript
+const notification = {
+   "_id": "5bd3c5b08fee0811752aa571"
+}
+socket.emit("readNotification", notification)  
